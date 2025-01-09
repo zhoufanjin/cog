@@ -562,7 +562,7 @@ Compatible cuDNN version is: %s`, c.Build.CuDNN, tfVersion, tfCuDNN)
 	return nil
 }
 
-// splitPythonPackage returns the name, version, findLinks, and extraIndexURLs from a requirements.txt line
+// splitPinnedPythonRequirement returns the name, version, findLinks, and extraIndexURLs from a requirements.txt line
 // in the form name==version [--find-links=<findLink>] [-f <findLink>] [--extra-index-url=<extraIndexURL>]
 func splitPinnedPythonRequirement(requirement string) (name string, version string, findLinks []string, extraIndexURLs []string, err error) {
 	pinnedPackageRe := regexp.MustCompile(`(?:([a-zA-Z0-9\-_]+)==([^ ]+)|--find-links=([^\s]+)|-f\s+([^\s]+)|--extra-index-url=([^\s]+))`)
